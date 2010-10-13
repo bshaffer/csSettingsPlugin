@@ -1,0 +1,28 @@
+all:
+  csSettingsPlugin:
+    types:      
+      input:        Text Field
+      textarea:     Text Area
+      checkbox:     Checkbox
+      select:       Select List
+      yesno:        Yes/No Radios
+      datetime:     Date/Time
+      model:        Database Model
+      upload:       Upload
+      richtext:     Rich Text
+    
+    authMethod:     isSuperAdmin      #used to determine if user is able to edit settings
+    
+    authCredential: admin      #used to determine if user is able to edit settings
+    
+    cachepaths:                       #override the cache path, for whatever reason you might want to
+      settings_array: cs_settings.settings_array.cache
+      object_array:   cs_settings.obj_array.cache
+
+    cache:
+      class: sfFileCache
+      options:
+        automatic_cleaning_factor: 0
+        cache_dir:                 %SF_TEMPLATE_CACHE_DIR%
+        lifetime:                  86400
+        prefix:                    %SF_APP_DIR%/template

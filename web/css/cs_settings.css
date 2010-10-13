@@ -1,0 +1,9 @@
+#sf_admin_container .sf_admin_action_restore_default a
+{
+  background-image: url('/csSettingsPlugin/images/restore.png') !important;
+}
+
+#sf_admin_container .sf_admin_action_restore_all_defaults a
+{
+  background-image: url('/csSettingsPlugin/images/restore-all.png') !important;
+}

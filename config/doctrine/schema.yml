@@ -1,0 +1,29 @@
+---
+csSetting:
+  actAs: 
+    Sluggable:
+      fields:   [name]
+      builder:  [csSettings, settingize]
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:
+      type:     string(255)
+      unique:   true
+      notnull:  true
+    type:
+      type: string(255)
+      notnull:  true
+      default:  input
+    widget_options:
+      type: clob
+    value:
+      type: clob
+    setting_group:
+      type: string(255)
+      default:  ''
+    setting_default:
+      type: clob
+      default:  ''

@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           csSetting
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          cs_setting
+    with_doctrine_route:     1
+
+    config:
+      fields:
+        multi_value:    { label: Value }
+      list:
+        title:          Settings
+        display:        [name, _value]
+        object_actions: 
+          _edit:    ~
+          _delete:  ~
+          restore_defaults: ~
+        batch_actions:  []
+      edit:
+        title:          Edit Setting
+        display:        [name, type, widget_options, _setting_group, setting_default, slug]
+      actions: ~
+      filter:  
+        class: false
+      form:    ~
+      new:     
+        title:          New Setting
+        display:        [name, type, widget_options, _setting_group, setting_default]
