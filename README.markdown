@@ -52,7 +52,7 @@ An admin module also exists for managing the settings in the database. you must 
     # /apps/myapp/config/settings.yml
     all:
       .settings:
-         enabled_modules:        [default, csSettings]
+         enabled_modules:        [default, csSetting]
 
 This module can be used to edit the variables as the plugin was originally built with the value for the setting being on the 
 list page and editable from there, or it can behave like a normal admin-generated page.
