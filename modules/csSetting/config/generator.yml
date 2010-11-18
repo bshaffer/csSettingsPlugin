@@ -27,7 +27,8 @@ generator:
       actions: ~
       filter:  
         class: false
-      form:    ~
+      form:
+        class:          csSettingAdminForm
       new:     
         title:          New Setting
         display:        [name, type, widget_options, _setting_group, setting_default]
