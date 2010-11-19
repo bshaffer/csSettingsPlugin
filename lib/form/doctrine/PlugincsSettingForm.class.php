@@ -83,11 +83,11 @@ abstract class PlugincsSettingForm extends BasecsSettingForm
   // Type Yesno
   public function getYesnoSettingWidget()
   {
-    return new sfWidgetFormSelectRadio(array('choices' => array('yes' => 'Yes', 'no' => 'No')), $this->getObject()->getOptionsArray());
+    return new sfWidgetFormSelectRadio(array('choices' => array('1' => 'Yes', '0' => 'No')), $this->getObject()->getOptionsArray());
   }
   public function getYesnoSettingValidator()
   {
-    return new sfValidatorChoice(array('choices' => array('yes', 'no'), 'required' => false));
+    return new sfValidatorChoice(array('choices' => array('1', '0'), 'required' => false));
   }
   
   //Type Select List
