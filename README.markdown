@@ -155,4 +155,4 @@ Customize the cache handler for your settings using your app.yml.  By default, _
 
 
 
-Please contact bshaffer@centresource.com for any questions or suggestions.
+Please contact *bshafs at gmail dot com* for any questions or suggestions.
