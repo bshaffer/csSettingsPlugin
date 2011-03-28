@@ -99,6 +99,44 @@ override the authMethod setting in your app.yml:
  * value
   * The value of the setting
 
+## Widget and Validator Customization ##
+
+Not happy with the available options?  Want to customize widgets and validators for your settings?  Get your code gloves on.
+Lets say you have a setting called **image_path** that you want to validate in a certain way.  You want to make sure the 
+URL submitted is valid. You can accomplish this as follows:
+
+    # /path/to/project/lib/form/doctrine/csSettingsPlugin/csSettingForm.class.php 
+    function getImagePathSettingValidator()
+    {
+        return new sfValidatorUrl();
+    }
+
+Likewise, if you have a custom widget you can do the same like this:
+
+    # /path/to/project/lib/form/doctrine/csSettingsPlugin/csSettingForm.class.php 
+    function getImagePathSettingWidget()
+    {
+        return new myCustomWidget();
+    }
+    
+You can even override the widgets and validators by their type.  For instance, if you want to use the tinyMCE widget instead
+of the default CKEditor Widget, you could do something like this:
+
+    # /path/to/project/lib/form/doctrine/csSettingsPlugin/csSettingForm.class.php 
+    public function getRichTextSettingWidget()
+    {
+        return new sfWidgetFormTextareaTinyMCE(array(), $this->getObject()->getOptionsArray());
+    }
+
+This will use the TinyMCE widget and also include the options specified in the setting's **widget_options** property. The same
+is possible with validators:
+
+    # /path/to/project/lib/form/doctrine/csSettingsPlugin/csSettingForm.class.php 
+    public function getRichTextSettingValidator()
+    {
+        return new sfValidatorHtml(array('strip_tags' => true)); 
+    }
+
 ## Cache ##
 
 Customize the cache handler for your settings using your app.yml.  By default, __sfNoCache__ is used.
