@@ -33,7 +33,7 @@ class BasecsSettingActions extends AutocsSettingActions
           if ($setting) 
           {
             // https://github.com/bshaffer/csSettingsPlugin/issues/8 workaround
-            if (!is_array($value) && (string) $value != 'Array') {
+            if (!is_array($value)) {
               $setting->setValue($value);
               $setting->save();
             }
