@@ -32,8 +32,11 @@ class BasecsSettingActions extends AutocsSettingActions
           $setting = Doctrine::getTable('csSetting')->findOneBySlug($slug);
           if ($setting) 
           {
-            $setting->setValue($value);
-            $setting->save();
+            // https://github.com/bshaffer/csSettingsPlugin/issues/8 workaround
+            if (!is_array($value) && (string) $value != 'Array') {
+              $setting->setValue($value);
+              $setting->save();
+            }
           }
         }
         
