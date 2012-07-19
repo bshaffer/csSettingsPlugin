@@ -13,7 +13,6 @@ After the settings have been loaded, retrieve them with `` csSettings::get() ``
 
 To create a setting, you can add one in using a fixture, or using the DIY admin module interface (see below)
     
-    [yaml]
     # in YAML fixture:
     csSetting:
       test_setting:
@@ -25,14 +24,12 @@ To create a setting, you can add one in using a fixture, or using the DIY admin 
 You can pull your setting into your project with the class method `` get ``.  This takes
 either the name of your setting or the inflected name of your setting.
 
-    [php]
     $value = csSettings::get('My Fake Setting');  // The name of your setting
     $value = csSettings::get('my_fake_setting');  // This will also work
 
 You can also use csSettings to call settings in your app.yml.  By default, if the value passed
 to the `` get `` method is null, `` sfConfig `` is called:
 
-    [php]
     $value = csSettings::get('this_setting_does_not_exist'); 
     // If a csSetting does not exist with this name, this returns the same as:
     $value = sfConfig::get('app_this_setting_does_not_exist');
@@ -42,13 +39,11 @@ to the `` get `` method is null, `` sfConfig `` is called:
 Alternatively, the entire `` csSetting `` object can be returned by calling the class method
 `` getSetting ``:
 
-    [php]
     $setting = csSettings::getSetting('my_fake_setting');
 
 ## Admin Module ##
 An admin module also exists for managing the settings in the database. you must enable the module in order to access it
 
-    [yaml]
     # /apps/myapp/config/settings.yml
     all:
       .settings:
@@ -61,7 +56,6 @@ By default, you must be authenticated to edit the setting configurations themsel
 If you want to prevent validated users from editing the setting configurations, you can
 override the authMethod setting in your app.yml:
 
-    [yaml]
     # /config/app.yml
     all:
       csSettingsPlugin:
@@ -141,17 +135,16 @@ is possible with validators:
 
 Customize the cache handler for your settings using your app.yml.  By default, __sfNoCache__ is used.
 
-  [yaml]
-  # /config/app.yml
-  all:
-    csSettingsPlugin:
-      cache:
-        class: sfFileCache
-        options:
-          automatic_cleaning_factor: 0
-          cache_dir:                 %SF_TEMPLATE_CACHE_DIR%
-          lifetime:                  86400
-          prefix:                    %SF_APP_DIR%/template
+    # /config/app.yml
+    all:
+      csSettingsPlugin:
+        cache:
+          class: sfFileCache
+          options:
+            automatic_cleaning_factor: 0
+            cache_dir:                 %SF_TEMPLATE_CACHE_DIR%
+            lifetime:                  86400
+            prefix:                    %SF_APP_DIR%/template
 
 
 
